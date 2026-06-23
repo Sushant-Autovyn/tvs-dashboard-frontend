@@ -1,0 +1,85 @@
+<div class="tickets-layout">
+  <!-- Ticket List -->
+  <div class="ticket-list">
+    <div class="list-toolbar">
+      <span class="sort-label">Sort by: Recently Updated &#9660;</span>
+      <button class="refresh-icon" (click)="load()" title="Refresh">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>
+      </button>
+    </div>
+
+    <div class="list-loading" *ngIf="loading">Loading tickets…</div>
+    <div class="list-empty" *ngIf="!loading && tickets.length === 0">No tickets found.</div>
+
+    <div
+      *ngFor="let t of tickets"
+      class="ticket-row"
+      [class.selected]="selected?._id === t._id"
+      (click)="select(t)"
+    >
+      <div class="ticket-top">
+        <span class="ticket-id">TKT-{{ t._id | slice:0:4 | uppercase }}</span>
+        <span class="status-badge" [class]="statusClass(t.status)">{{ statusLabel(t.status) }}</span>
+        <span class="priority-badge normal">Normal</span>
+        <span class="ticket-meta-right">—</span>
+      </div>
+      <div class="ticket-title">{{ t.username }}</div>
+      <div class="ticket-sub">
+        {{ t.email }}
+        <span class="sla">SLA in 15h</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ticket Detail -->
+  <div class="ticket-detail" *ngIf="selected; else noSelection">
+    <div class="detail-header">
+      <div class="detail-meta">
+        <span class="detail-id">TKT-{{ selected._id | slice:0:4 | uppercase }}</span>
+        <span class="dot">•</span>
+        <span>Opened just now</span>
+        <span class="dot">•</span>
+        <span>Incident</span>
+      </div>
+      <div class="detail-actions">
+        <button class="icon-btn-sm">&#8943;</button>
+      </div>
+    </div>
+
+    <h2 class="detail-title">{{ selected.issue }}</h2>
+    <p class="detail-email">{{ selected.username }} &lt;{{ selected.email }}&gt;</p>
+
+    <div class="messages-area">
+      <div *ngIf="chatMessages.length === 0" class="msg-empty">No messages yet from user.</div>
+
+      <div *ngFor="let m of chatMessages"
+        class="message-row"
+        [class.msg-row-agent]="m.sender === 'admin'">
+        <div class="msg-avatar" *ngIf="m.sender === 'user'">{{ selected.username[0] | uppercase }}</div>
+        <div class="msg-bubble" [class.agent-bubble]="m.sender === 'admin'">
+          <span class="msg-author">{{ m.sender === 'admin' ? 'ADMIN' : (selected.username | uppercase) }}</span>
+          <span class="msg-time">• {{ m.timestamp | date:'shortTime' }}</span>
+          <div class="msg-text">{{ m.text }}</div>
+        </div>
+        <div class="msg-avatar agent-av" *ngIf="m.sender === 'admin'">A</div>
+      </div>
+    </div>
+
+    <div class="reply-bar">
+      <textarea
+        class="reply-input"
+        [(ngModel)]="adminReply"
+        (keydown.enter)="$event.preventDefault(); sendAdminReply()"
+        placeholder="Reply to user… (Enter to send)"
+        rows="2"
+      ></textarea>
+      <button class="reply-send-btn" (click)="sendAdminReply()" [disabled]="!adminReply.trim() || sendingReply">
+        {{ sendingReply ? '…' : 'Send' }}
+      </button>
+    </div>
+  </div>
+
+  <ng-template #noSelection>
+    <div class="no-selection">Select a ticket to view details</div>
+  </ng-template>
+</div>

@@ -1,0 +1,47 @@
+<div class="table-wrap">
+  <div *ngIf="loading" class="state-msg">Loading tickets…</div>
+
+  <div *ngIf="!loading && tickets.length === 0" class="state-msg">
+    {{ emptyMessage }}
+  </div>
+
+  <table *ngIf="!loading && tickets.length > 0">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Customer</th>
+        <th>Phone</th>
+        <th>Issue</th>
+        <th>Status</th>
+        <th>Submitted</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ticket of tickets; let i = index">
+        <td class="row-num">{{ i + 1 }}</td>
+        <td>
+          <div class="customer">
+            <strong>{{ ticket.username }}</strong>
+            <span>{{ ticket.email }}</span>
+          </div>
+        </td>
+        <td>{{ ticket.phone }}</td>
+        <td class="issue-col">{{ ticket.issue }}</td>
+        <td>
+          <span [class]="badgeClass(ticket.status)">{{ ticket.status }}</span>
+        </td>
+        <td>{{ formatDate(ticket.submittedAt) }}</td>
+        <td>
+          <select
+            class="status-sel"
+            [ngModel]="ticket.status"
+            (ngModelChange)="onStatusChange(ticket, $event)"
+          >
+            <option *ngFor="let s of statusOptions" [value]="s">{{ s }}</option>
+          </select>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

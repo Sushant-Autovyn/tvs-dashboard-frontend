@@ -1,0 +1,243 @@
+/* ── Layout — Modern SaaS (Violet + Pink + Emerald) ── */
+.crm-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(820px 440px at 100% 0%, rgba(124, 58, 237, 0.10), transparent 60%),
+    radial-gradient(700px 380px at 0% 100%, rgba(236, 72, 153, 0.07), transparent 60%),
+    linear-gradient(180deg, #F7F7FB 0%, #EFEFF7 100%);
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+/* Collapsed sidebar */
+.crm-layout app-dash-sidebar {
+  display: block;
+  overflow: hidden;
+  transition: width 0.22s ease, opacity 0.18s ease;
+}
+.crm-layout.sidebar-collapsed app-dash-sidebar {
+  width: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.crm-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0;
+}
+
+/* ── Top Header ── */
+.crm-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 22px;
+  height: 60px;
+  background:
+    radial-gradient(420px 200px at 0% 0%, rgba(207, 236, 243, 0.55), transparent 70%),
+    radial-gradient(360px 200px at 100% 100%, rgba(254, 158, 199, 0.18), transparent 70%),
+    linear-gradient(180deg, #F4FAFC 0%, #ECF4F7 100%);
+  border-bottom: 1px solid #DCE7EC;
+  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.02);
+  position: relative;
+  flex-shrink: 0;
+}
+.crm-header::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -1px;
+  height: 2px;
+  background: linear-gradient(90deg, #0E7490 0%, #DB2777 50%, #059669 100%);
+  opacity: 0.9;
+}
+
+.search-bar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #F8FAFC;
+  border: 1px solid #E5E7EB;
+  border-radius: 10px;
+  padding: 9px 14px;
+  transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+}
+.search-bar:focus-within {
+  border-color: #7C3AED;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.14);
+}
+
+.search-bar input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 13px;
+  color: #0F172A;
+  width: 100%;
+}
+.search-bar input::placeholder { color: #94A3B8; }
+
+.clear-search {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #94A3B8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  border-radius: 4px;
+  transition: background 0.12s, color 0.12s;
+}
+.clear-search:hover { background: #EDE9FE; color: #7C3AED; }
+
+.priority-filter { position: relative; }
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  border: 1px solid #E5E7EB;
+  border-radius: 10px;
+  padding: 9px 14px;
+  font-size: 13px;
+  color: #334155;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+.filter-btn:hover,
+.filter-btn.open {
+  border-color: #7C3AED;
+  background: #F5F3FF;
+  color: #5B21B6;
+}
+
+.priority-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 180px;
+  background: #ffffff;
+  border: 1px solid #ECECF3;
+  border-radius: 10px;
+  box-shadow: 0 18px 36px -16px rgba(15, 15, 35, 0.25), 0 2px 6px rgba(15, 15, 35, 0.05);
+  padding: 6px;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.priority-option {
+  background: transparent;
+  border: none;
+  text-align: left;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #334155;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+}
+.priority-option:hover { background: #F5F3FF; color: #5B21B6; }
+.priority-option.active {
+  background: linear-gradient(90deg, rgba(124, 58, 237, 0.12), rgba(236, 72, 153, 0.08));
+  color: #6D28D9;
+  font-weight: 600;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.icon-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 7px;
+  border-radius: 8px;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: background 0.15s, color 0.15s;
+}
+.icon-btn:hover { background: #F5F3FF; color: #5B21B6; }
+
+.notif-dot {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: linear-gradient(135deg, #EC4899 0%, #F43F5E 100%);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  border-radius: 999px;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(236, 72, 153, 0.50);
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  background: linear-gradient(135deg, #7C3AED 0%, #EC4899 100%);
+  color: #fff;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.40);
+}
+
+.logout-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 12px;
+  border-radius: 9px;
+  border: 1px solid #FECDD3;
+  background: #FFF1F2;
+  color: #BE123C;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s, box-shadow 0.15s;
+}
+.logout-btn:hover {
+  background: #FFE4E6;
+  border-color: #FDA4AF;
+  box-shadow: 0 4px 12px -6px rgba(190, 18, 60, 0.35);
+}
+.logout-btn:active { transform: translateY(1px); }
+.logout-btn svg { flex-shrink: 0; }
+@media (max-width: 720px) {
+  .logout-btn span { display: none; }
+  .logout-btn { padding: 0 9px; }
+}
+
+.crm-content {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+}

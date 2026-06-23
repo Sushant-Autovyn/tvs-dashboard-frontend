@@ -1,0 +1,76 @@
+<section class="dashboard-page">
+  <div class="stats-grid">
+    <div class="stat-card">
+      <span>Total Requests</span>
+      <strong>{{ totalUsers }}</strong>
+    </div>
+    <div class="stat-card warning">
+      <span>Pending</span>
+      <strong>{{ pendingUsers }}</strong>
+    </div>
+    <div class="stat-card success">
+      <span>Resolved</span>
+      <strong>{{ resolvedUsers }}</strong>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      placeholder="Search by name, email or issue"
+      class="search-input"
+    />
+
+    <select [(ngModel)]="statusFilter" class="status-select">
+      <option *ngFor="let option of statusOptions" [value]="option">
+        {{ option === 'all' ? 'All Status' : option }}
+      </option>
+    </select>
+  </div>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Customer</th>
+          <th>Phone</th>
+          <th>Issue</th>
+          <th>Status</th>
+          <th>Submitted</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of filteredUsers">
+          <td>
+            <div class="user-cell">
+              <strong>{{ user.username }}</strong>
+              <span>{{ user.email }}</span>
+            </div>
+          </td>
+          <td>{{ user.phone }}</td>
+          <td class="issue-cell">{{ user.issue }}</td>
+          <td>
+            <span [class]="getStatusClass(user.status)">{{ user.status }}</span>
+          </td>
+          <td>{{ formatDate(user.submittedAt) }}</td>
+          <td>
+            <div class="action-group">
+              <select class="small-select" [ngModel]="user.status" (ngModelChange)="updateStatus(user, $event)">
+                <option value="pending">Pending</option>
+                <option value="in progress">In Progress</option>
+                <option value="resolved">Resolved</option>
+              </select>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div *ngIf="!loading && filteredUsers.length === 0" class="empty-state">
+      No matching requests found.
+    </div>
+  </div>
+
+</section>

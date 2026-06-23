@@ -1,0 +1,48 @@
+/* ── Unassigned Tickets: burgundy accent ── */
+.view-page {
+  position: relative;
+  background: linear-gradient(180deg, #ffffff 0%, #fdf5f7 100%);
+  border-radius: 14px;
+  padding: 22px;
+  border: 1px solid #f1d4dc;
+  box-shadow: 0 8px 24px -12px rgba(190, 18, 60, 0.18), 0 2px 4px rgba(15, 23, 42, 0.04);
+  overflow: hidden;
+}
+.view-page::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #881337 0%, #be123c 50%, #e11d48 100%);
+}
+
+.page-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.page-head h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.3px;
+}
+
+.refresh-btn {
+  background: linear-gradient(135deg, #881337 0%, #be123c 100%);
+  color: #fff;
+  border: none;
+  border-radius: 9px;
+  padding: 9px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 10px -2px rgba(190, 18, 60, 0.35);
+  transition: transform 0.12s, filter 0.15s, box-shadow 0.15s;
+}
+
+.refresh-btn:hover { filter: brightness(1.08); box-shadow: 0 6px 14px -2px rgba(190, 18, 60, 0.45); transform: translateY(-1px); }
+.refresh-btn:active { transform: translateY(0); }

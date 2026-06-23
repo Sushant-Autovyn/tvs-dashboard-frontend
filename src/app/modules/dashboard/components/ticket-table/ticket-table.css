@@ -1,0 +1,116 @@
+/* ── Ticket Table — Modern SaaS (Violet + Pink + Emerald) ── */
+.table-wrap {
+  overflow-x: auto;
+  border-radius: 14px;
+  border: 1px solid #ECECF3;
+  background: #ffffff;
+  box-shadow: 0 4px 14px -8px rgba(15, 15, 35, 0.10);
+}
+
+.state-msg {
+  padding: 36px;
+  text-align: center;
+  color: #64748B;
+  font-size: 14px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+thead {
+  background: linear-gradient(180deg, #FAFAFC 0%, #F5F3FF 100%);
+}
+
+th {
+  background: transparent;
+  color: #475569;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.9px;
+  padding: 13px 16px;
+  text-align: left;
+  border-bottom: 1px solid #ECECF3;
+}
+
+td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #F1F5F9;
+  vertical-align: middle;
+  color: #1E293B;
+}
+
+tr:last-child td { border-bottom: none; }
+tr {
+  transition: background 0.12s;
+}
+tbody tr:hover td {
+  background: linear-gradient(90deg, rgba(124, 58, 237, 0.06) 0%, rgba(236, 72, 153, 0.04) 100%);
+}
+
+.row-num {
+  color: #94A3B8;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.customer {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.customer strong { font-size: 14px; color: #0F172A; font-weight: 600; }
+.customer span   { font-size: 12px; color: #64748B; }
+
+.issue-col {
+  max-width: 280px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #334155;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 11px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+  border: 1px solid transparent;
+  box-shadow: 0 1px 2px rgba(15, 15, 35, 0.04);
+}
+
+.badge--pending  {
+  background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+  color: #B45309;
+  border-color: #FDE68A;
+}
+.badge--progress {
+  background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 100%);
+  color: #5B21B6;
+  border-color: #DDD6FE;
+}
+.badge--resolved {
+  background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+  color: #047857;
+  border-color: #A7F3D0;
+}
+
+.status-sel {
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 13px;
+  background: #fff;
+  color: #1E293B;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.status-sel:hover { border-color: #A78BFA; }
+.status-sel:focus { border-color: #7C3AED; box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15); }

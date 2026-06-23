@@ -1,0 +1,12 @@
+<div class="view-page">
+  <div class="page-head">
+    <h2>New Tickets</h2>
+    <button class="refresh-btn" (click)="load()">Refresh</button>
+  </div>
+  <app-ticket-table
+    [tickets]="tickets"
+    [loading]="loading"
+    emptyMessage="No new tickets."
+    (statusChange)="onStatusChange($event)"
+  ></app-ticket-table>
+</div>

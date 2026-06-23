@@ -1,0 +1,145 @@
+.dashboard-page {
+  min-height: 100vh;
+  background: #f5f7fb;
+  padding: 32px;
+  font-family: 'Inter', sans-serif;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.stat-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+}
+
+.stat-card span {
+  display: block;
+  color: #64748b;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.stat-card strong {
+  font-size: 32px;
+  color: #0f172a;
+}
+
+.stat-card.warning strong { color: #f59e0b; }
+.stat-card.success strong { color: #16a34a; }
+
+.toolbar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.search-input,
+.status-select,
+.small-select {
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-input {
+  flex: 1;
+}
+
+.table-wrapper {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 14px 16px;
+  border-bottom: 1px solid #eef2f7;
+  vertical-align: top;
+}
+
+th {
+  background: #f8fafc;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.user-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.user-cell span {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.issue-cell {
+  max-width: 320px;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.badge.pending {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.badge.in-progress {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.badge.resolved {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.action-group {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.empty-state {
+  padding: 24px;
+  text-align: center;
+  color: #64748b;
+}
+
+@media (max-width: 900px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .toolbar {
+    flex-direction: column;
+  }
+}
