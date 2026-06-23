@@ -4,8 +4,8 @@
   height: 100vh;
   overflow: hidden;
   background:
-    radial-gradient(820px 440px at 100% 0%, rgba(124, 58, 237, 0.10), transparent 60%),
-    radial-gradient(700px 380px at 0% 100%, rgba(236, 72, 153, 0.07), transparent 60%),
+    radial-gradient(820px 440px at 100% 0%, rgba(0, 48, 135, 0.10), transparent 60%),
+    radial-gradient(700px 380px at 0% 100%, rgba(0, 48, 135, 0.07), transparent 60%),
     linear-gradient(180deg, #F7F7FB 0%, #EFEFF7 100%);
   font-family: "Inter", "Segoe UI", sans-serif;
 }
@@ -40,8 +40,8 @@
   background:
     radial-gradient(420px 200px at 0% 0%, rgba(207, 236, 243, 0.55), transparent 70%),
     radial-gradient(360px 200px at 100% 100%, rgba(254, 158, 199, 0.18), transparent 70%),
-    linear-gradient(180deg, #F4FAFC 0%, #ECF4F7 100%);
-  border-bottom: 1px solid #DCE7EC;
+    linear-gradient(180deg, #f7f8fb 0%, #eef0f5 100%);
+  border-bottom: 1px solid #e7eaf0;
   box-shadow: 0 1px 0 rgba(15, 23, 42, 0.02);
   position: relative;
   flex-shrink: 0;
@@ -51,7 +51,7 @@
   position: absolute;
   left: 0; right: 0; bottom: -1px;
   height: 2px;
-  background: linear-gradient(90deg, #0E7490 0%, #DB2777 50%, #059669 100%);
+  background: linear-gradient(90deg, #003087 0%, #0046c7 50%, #22c55e 100%);
   opacity: 0.9;
 }
 
@@ -67,9 +67,9 @@
   transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
 }
 .search-bar:focus-within {
-  border-color: #7C3AED;
+  border-color: #003087;
   background: #fff;
-  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.14);
+  box-shadow: 0 0 0 3px rgba(0, 48, 135, 0.14);
 }
 
 .search-bar input {
@@ -94,7 +94,7 @@
   border-radius: 4px;
   transition: background 0.12s, color 0.12s;
 }
-.clear-search:hover { background: #EDE9FE; color: #7C3AED; }
+.clear-search:hover { background: #EDE9FE; color: #003087; }
 
 .priority-filter { position: relative; }
 
@@ -115,7 +115,7 @@
 }
 .filter-btn:hover,
 .filter-btn.open {
-  border-color: #7C3AED;
+  border-color: #003087;
   background: #F5F3FF;
   color: #5B21B6;
 }
@@ -148,7 +148,7 @@
 }
 .priority-option:hover { background: #F5F3FF; color: #5B21B6; }
 .priority-option.active {
-  background: linear-gradient(90deg, rgba(124, 58, 237, 0.12), rgba(236, 72, 153, 0.08));
+  background: linear-gradient(90deg, rgba(0, 48, 135, 0.12), rgba(0, 48, 135, 0.08));
   color: #6D28D9;
   font-weight: 600;
 }
@@ -178,7 +178,7 @@
   position: absolute;
   top: 2px;
   right: 2px;
-  background: linear-gradient(135deg, #EC4899 0%, #F43F5E 100%);
+  background: linear-gradient(135deg, #475569 0%, #0046c7 100%);
   color: #fff;
   font-size: 9px;
   font-weight: 700;
@@ -188,13 +188,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 6px rgba(236, 72, 153, 0.50);
+  box-shadow: 0 2px 6px rgba(0, 48, 135, 0.50);
 }
 
 .avatar {
   width: 34px;
   height: 34px;
-  background: linear-gradient(135deg, #7C3AED 0%, #EC4899 100%);
+  background: linear-gradient(135deg, #003087 0%, #475569 100%);
   color: #fff;
   border-radius: 999px;
   display: flex;
@@ -203,7 +203,7 @@
   font-size: 13px;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.40);
+  box-shadow: 0 4px 12px rgba(0, 48, 135, 0.40);
 }
 
 .logout-btn {
@@ -224,7 +224,7 @@
 .logout-btn:hover {
   background: #FFE4E6;
   border-color: #FDA4AF;
-  box-shadow: 0 4px 12px -6px rgba(190, 18, 60, 0.35);
+  box-shadow: 0 4px 12px -6px rgba(0, 48, 135, 0.35);
 }
 .logout-btn:active { transform: translateY(1px); }
 .logout-btn svg { flex-shrink: 0; }

@@ -13,7 +13,7 @@
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #047857 0%, #10b981 50%, #34d399 100%);
+  background: linear-gradient(90deg, #16a34a 0%, #10b981 50%, #34d399 100%);
 }
 
 .page-head {
@@ -32,7 +32,7 @@
 }
 
 .refresh-btn {
-  background: linear-gradient(135deg, #047857 0%, #10b981 100%);
+  background: linear-gradient(135deg, #16a34a 0%, #10b981 100%);
   color: #fff;
   border: none;
   border-radius: 9px;

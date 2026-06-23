@@ -29,11 +29,11 @@ export class StatsHeaderComponent {
     const unassigned = this.tickets.filter(t => t.status === 'pending' && !t.userId).length;
 
     return [
-      { label: 'Total Tickets',  value: all,        change: '↑ 12% from yesterday', icon: '&#128203;', bg: '#eff6ff' },
-      { label: 'New Tickets',    value: newT,       change: '↑ 15% from yesterday', icon: '&#128196;', bg: '#fefce8' },
+      { label: 'Total Tickets',  value: all,        change: '↑ 12% from yesterday', icon: '&#128203;', bg: '#eef2ff' },
+      { label: 'New Tickets',    value: newT,       change: '↑ 15% from yesterday', icon: '&#128196;', bg: '#eef2ff' },
       { label: 'Pending Tic...', value: pending,    change: '↑ 5% from yesterday',  icon: '&#9203;',   bg: '#fff7ed' },
-      { label: 'Solved (24h)',   value: solved,     change: '↑ 20% from yesterday', icon: '&#10003;',  bg: '#f5f3ff' },
-      { label: 'Unassigned',     value: unassigned, change: '↓ 10% from yesterday', icon: '&#128101;', bg: '#fdf2f8' },
+      { label: 'Solved (24h)',   value: solved,     change: '↑ 20% from yesterday', icon: '&#10003;',  bg: '#ecfdf5' },
+      { label: 'Unassigned',     value: unassigned, change: '↓ 10% from yesterday', icon: '&#128101;', bg: '#f1f5f9' },
     ];
   }
 }

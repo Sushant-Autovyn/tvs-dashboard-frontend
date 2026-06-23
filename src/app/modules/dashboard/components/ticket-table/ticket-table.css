@@ -48,7 +48,7 @@ tr {
   transition: background 0.12s;
 }
 tbody tr:hover td {
-  background: linear-gradient(90deg, rgba(124, 58, 237, 0.06) 0%, rgba(236, 72, 153, 0.04) 100%);
+  background: linear-gradient(90deg, rgba(0, 48, 135, 0.06) 0%, rgba(0, 48, 135, 0.04) 100%);
 }
 
 .row-num {
@@ -97,7 +97,7 @@ tbody tr:hover td {
 }
 .badge--resolved {
   background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
-  color: #047857;
+  color: #16a34a;
   border-color: #A7F3D0;
 }
 
@@ -113,4 +113,4 @@ tbody tr:hover td {
   transition: border-color 0.15s, box-shadow 0.15s;
 }
 .status-sel:hover { border-color: #A78BFA; }
-.status-sel:focus { border-color: #7C3AED; box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15); }
+.status-sel:focus { border-color: #003087; box-shadow: 0 0 0 3px rgba(0, 48, 135, 0.15); }
